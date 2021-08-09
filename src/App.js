@@ -5,7 +5,7 @@ import CounterHook from './components/CounterHook';
 function App() {
   return (
     <div className="App">
-      <Counter />
+      {/* <Counter /> */}
       <CounterHook />
     </div>
   );
