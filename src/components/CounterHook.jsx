@@ -4,13 +4,18 @@ function CounterHook() {
     
     const arr = useState(0);
     console.log(arr);
-    const counter = arr[0]
+    const counter = arr[0];
+    const setCounter = arr[1]
+
+    const onCounter = () =>  {
+        setCounter(counter + 1)
+    }
 
     return ( 
     <div>
         <h2>Counter</h2>
         <h2>{counter}</h2>
-        <button>Increase</button>
+        <button onClick={onCounter} >Increase</button>
     </div> 
     );
 }

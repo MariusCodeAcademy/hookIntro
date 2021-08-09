@@ -7,11 +7,16 @@ class Counter extends Component {
             counter: 0
          }
     }
+
+    setCounter = () => {
+        this.setState({ counter: this.state.counter + 1 });
+    }
+
     render() { 
         return ( <div>
             <h2>Counter</h2>
             <h2>{this.state.counter}</h2>
-            <button>Increase</button>
+            <button onClick={this.setCounter} >Increase</button>
         </div> );
     }
 }
