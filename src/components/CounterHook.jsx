@@ -11,7 +11,12 @@ function CounterHook() {
     useEffect(() => {
         console.log('useEffect');
         document.title = `${name} has clicked ${counter} times`
-    })
+        // componentWillUnmount - componento paslinimas. pvz uzdaryt db prisijungima
+        return () => {
+            // veikia kaip componentWillUnmount kai antras useEffect argumentas yra []
+            console.log('clean up')
+        }
+    }, [])
     
     return ( 
     <div>
