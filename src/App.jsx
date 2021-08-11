@@ -9,9 +9,19 @@ class App extends Component {
       age: 41,
     },
   };
+
+  handleLogin = (username) => {
+    console.log("handleLogIn ran", username);
+  };
+
   render() {
     return (
-      <UserContext.Provider value={this.state.user}>
+      <UserContext.Provider
+        value={{
+          user: this.state.user,
+          onLogin: this.handleLogin,
+        }}
+      >
         <div className="App">
           <MoviePage />
         </div>

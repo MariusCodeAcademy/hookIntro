@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MovieRow from "./MovieRow";
 import UserContext from "./UserContext";
 
 class MovieList extends Component {
@@ -16,9 +17,10 @@ class MovieList extends Component {
           <div>
             <h3>MovieList</h3>
             <p>
-              {userContext.name} user likes this movie list and he is{" "}
-              {userContext.age} years old
+              {userContext.user.name} user likes this movie list and he is{" "}
+              {userContext.user.age} years old
             </p>
+            <MovieRow />
           </div>
         )}
       </UserContext.Consumer>
