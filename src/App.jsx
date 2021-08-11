@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Login from "./context/Login";
 import MoviePage from "./context/MoviePage";
 import UserContext from "./context/UserContext";
 
@@ -12,6 +13,7 @@ class App extends Component {
 
   handleLogin = (username) => {
     console.log("handleLogIn ran", username);
+    this.setState({ user: { ...this.state.user, name: username } });
   };
 
   render() {
@@ -24,6 +26,7 @@ class App extends Component {
       >
         <div className="App">
           <MoviePage />
+          <Login />
         </div>
       </UserContext.Provider>
     );
