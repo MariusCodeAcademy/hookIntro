@@ -4,11 +4,14 @@ import UserContext from "./context/UserContext";
 
 class App extends Component {
   state = {
-    username: "James",
+    user: {
+      name: "James",
+      age: 41,
+    },
   };
   render() {
     return (
-      <UserContext.Provider value={this.state.username}>
+      <UserContext.Provider value={this.state.user}>
         <div className="App">
           <MoviePage />
         </div>
