@@ -1,4 +1,5 @@
 import React, { useReducer, useState } from "react";
+import RTodo from "./RTodo";
 
 const ACTION = {
   ADD_TODO: "add-todo",
@@ -30,15 +31,23 @@ function ReducerSimpleTodo() {
   }
 
   return (
-    <form onSubmit={todoSubmitHandler}>
-      <h4>Reducer Simple todo</h4>
-      <input
-        value={title}
-        onChange={(event) => setTitle(event.target.value)}
-        type="text"
-        placeholder="Enter todo"
-      />
-    </form>
+    <>
+      <form onSubmit={todoSubmitHandler}>
+        <h4>Reducer Simple todo</h4>
+        <input
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          type="text"
+          placeholder="Enter todo"
+        />
+      </form>
+      <h6>List</h6>
+      <ul>
+        {todosArr.map((t) => (
+          <RTodo key={t.id} item={t} />
+        ))}
+      </ul>
+    </>
   );
 }
 
