@@ -51,7 +51,7 @@ function ReducerSimpleTodo() {
           placeholder="Enter todo"
         />
       </form>
-      {/* rodyti reikiamus reikiamoj vietoj  */}
+
       {todosArr.length === 0 && <p>No todos at the moment</p>}
       {todosArr.length > 0 && (
         <div>
