@@ -4,6 +4,7 @@ import RTodo from "./RTodo";
 export const ACTION = {
   ADD_TODO: "add-todo",
   TOGGLE_TODO: "toggle-todo",
+  DELETE_TODO: "delete-todo",
 };
 
 function todoReducer(todosArr, action) {
@@ -15,6 +16,9 @@ function todoReducer(todosArr, action) {
         if (action.payload === t.id) return { ...t, done: !t.done };
         return t;
       });
+    case ACTION.DELETE_TODO:
+      // gauti versija todoArr be to kas buvo paspausta
+      return todosArr.filter((t) => t.id !== action.payload);
     default:
       return todosArr;
   }
@@ -47,12 +51,18 @@ function ReducerSimpleTodo() {
           placeholder="Enter todo"
         />
       </form>
-      <h6>List</h6>
-      <ul>
-        {todosArr.map((t) => (
-          <RTodo key={t.id} item={t} dispatch={dispatch} />
-        ))}
-      </ul>
+      {/* rodyti reikiamus reikiamoj vietoj  */}
+      {todosArr.length === 0 && <p>No todos at the moment</p>}
+      {todosArr.length > 0 && (
+        <div>
+          <h6>List</h6>
+          <ul>
+            {todosArr.map((t) => (
+              <RTodo key={t.id} item={t} dispatch={dispatch} />
+            ))}
+          </ul>
+        </div>
+      )}
     </>
   );
 }

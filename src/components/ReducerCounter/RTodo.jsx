@@ -12,7 +12,11 @@ export default function RTodo({ item, dispatch }) {
       >
         Toggle
       </button>
-      <button>Delete</button>
+      <button
+        onClick={() => dispatch({ type: ACTION.DELETE_TODO, payload: item.id })}
+      >
+        Delete
+      </button>
     </li>
   );
 }
