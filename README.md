@@ -1,4 +1,4 @@
-# Intro into React Hooks
+# Intro into React Hooks (useMemo)
 
 ## Context in Class cmp
 
